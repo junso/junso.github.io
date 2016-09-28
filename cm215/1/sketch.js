@@ -5,6 +5,6 @@ function setup() {
 function draw() {
 }
 
-  function tochStarted(){
+  function touchStarted(){
   background (random(0,255),random(0,255) ,random(0,255));
 }
