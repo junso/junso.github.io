@@ -3,5 +3,8 @@ function setup() {
 }
 
 function draw() {
-  background (random(255,60),random(255,10) ,random(255,100));
+}
+
+  function tochStarted(){
+  background (random(0,255),random(0,255) ,random(0,255));
 }
