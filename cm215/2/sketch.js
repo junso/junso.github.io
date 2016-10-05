@@ -17,10 +17,7 @@ function draw() {
   for (var i = 0; i < touches.length; i++) {
     rect(touches[i].x, touches[i].y, 150, 150);
 
-    for (var l = 0, l = touches, l++) {
-      line((touches[i].x, touches[i].y));
-
-    }
+      line(touches[i].x, touches[i].y);
   }
 
 }
