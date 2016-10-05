@@ -8,7 +8,7 @@ function setup() {
 function draw() 
 {
   background (255);
-  fill(random(0,255),(random(0,255),(random(0,255));
+  fill(random(0,255),random(0,255),random(0,255));
     
   for(var i=0; i<touches.length;i++){
     rect(touches[i].x,touches[i].y,150,150);
