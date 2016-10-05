@@ -19,7 +19,7 @@ function draw()
     rect(touches[i].x,touches[i].y,150,150);
     
   for(var l=0,l=touches,l++){
-line();  }
+line(touches[i].x,touches[i].y,150,150);  }
   }
     
   }
