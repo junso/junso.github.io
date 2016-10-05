@@ -1,4 +1,4 @@
-cocument.ontouchmove = function(event) {
+document.ontouchmove = function(event) {
   event.preventDefault();
 }
 
@@ -26,5 +26,5 @@ function draw() {
     }
 
   }
-
+}
   function touchStarted() {}
