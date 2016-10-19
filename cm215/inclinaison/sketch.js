@@ -2,7 +2,7 @@ function setup() {
  createCanvas(windowWidth,windowHeight); 
 
   ellipseMode(CENTER);
-  ballSize = 30 ;
+  ballSize = 200;
 }
 
 function draw() {
