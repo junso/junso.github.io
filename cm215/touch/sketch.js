@@ -45,6 +45,4 @@ function draw() {
     ellipse(touches[i].x, touches[i].y, 80);
   }
 }
-
-//function touchStarted() {
 //}
