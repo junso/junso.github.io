@@ -27,6 +27,10 @@ function draw() {
 
       vertex(touches[i].x, touches[i].y);
 
+      vertex(touches[i + 1].x, touches[i + 1].y);
+
+      vertex(touches[i + 1].x, touches[i + 1].y);
+
       endShape(CLOSE);
       
       //line(touches[i].x,touches[i].y,touches[i+1].x,touches[i+1].y);
