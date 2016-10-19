@@ -1,3 +1,5 @@
+var ballSize;
+
 function setup() {
  createCanvas(windowWidth,windowHeight); 
 
@@ -6,10 +8,8 @@ function setup() {
 }
 
 function draw() {
-  
-
+ background(255
  
- background(255);
  drawBall() {
    
  textSize(45);
@@ -20,6 +20,7 @@ function draw() {
 }
 
 function drawBall(){
+  
   fill(100);
   ellipse(windowHeight/2 , windowWidth/2, ballSize,ballSize);
 }
