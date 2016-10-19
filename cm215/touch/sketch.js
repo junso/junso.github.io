@@ -40,12 +40,13 @@ function draw() {
       vertex(touches[0].x, touches[0].y);
 
       vertex(touches[0].x, touches[0].y);
-
+    }
       endShape(CLOSE);
 
+    for (var i = 0; i < touches.length; i++) {
 
+      ellipse(touches[i].x, touches[i].y, 80);
     }
-    ellipse(touches[i].x, touches[i].y, 75);
   }
 }
 
