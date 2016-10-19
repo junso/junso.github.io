@@ -15,11 +15,12 @@ function draw() {
 
   for (var i = 0; i < touches.length; i++) {
     ellipse(touches[i].x, touches[i].y, 80,80);
-  fill(random(0, 255), random(0, 255), random(0, 255));
+
   }
-  
+    fill(random(0, 255), random(0, 255), random(0, 255));
   beginShape();
   for (var i = 0; i < touches.length; i++) {
+    
     vertex(touches[i].x, touches[i].y);
   }
   endShape(CLOSE);
