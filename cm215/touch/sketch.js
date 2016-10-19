@@ -13,7 +13,7 @@ function setup() {
 function draw() {
   background(255);
 
-  
+  for (var i = 0; i < touches.length; i++) {
 
 
     if ((i + 1) < touches.length) {
@@ -22,9 +22,10 @@ function draw() {
       beginShape();
       
       fill(random(0,255),random(0,255),random(0,255)); 
-      for (var i = 0; i < touches.length; i++) {
-        
+      
       vertex(touches[i].x, touches[i].y);
+
+      vertex(touches[i +1].x, touches[i + 1].y);
 
       endShape(CLOSE);
       
@@ -37,6 +38,11 @@ function draw() {
       
       vertex(touches[i].x, touches[i].y);
 
+      vertex(touches[i].x, touches[i].y);
+
+      vertex(touches[0].x, touches[0].y);
+
+      vertex(touches[0].x, touches[0].y);
       
       endShape(CLOSE);
       
