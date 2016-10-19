@@ -10,7 +10,7 @@ function setup() {
 function draw() {
   background(255);
 
-  drawBall() {
+  drawBall();
     textSize(45);
 
     text("Rx: " + floor(rotationX), 100, 100);
