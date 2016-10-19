@@ -16,7 +16,9 @@ function draw() {
     if ((i + 1) < touches.length) {
 
       beginShape();
-
+      
+for (var i = 0; i < touches.length; i++) {
+  
       vertex(touches[i].x, touches[i].y);
 
       vertex(touches[i].x, touches[i].y);
@@ -24,7 +26,7 @@ function draw() {
       vertex(touches[i + 1].x, touches[i + 1].y);
 
       vertex(touches[i + 1].x, touches[i + 1].y);
-
+}
       endShape(CLOSE);
 
     } else {
