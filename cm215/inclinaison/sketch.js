@@ -22,11 +22,17 @@ function draw() {
   text("Rz: " + floor(rotationZ), 100, 200);
 
   accX = rotationY * f;
-  accY = rotationX;
+  accY = rotationX* f;
   vX += accX;
   vY += accY;
   posX += vX;
   posY += vY;
+  
+  if ( < ){
+      line();
+    } else {
+      line(touches[i].x, touches[i].y, touches[0].x, touches[0].y);
+    }
 }
 
 
