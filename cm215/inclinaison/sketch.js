@@ -26,7 +26,7 @@ function draw() {
   accY = rotationX * f;
   
   vX += accX;
-  vY += accY
+  vY += accY;
   
   posX += vX;
   posY += vY;
@@ -46,6 +46,6 @@ function draw() {
 }
 
 function drawBall() {
-  fill(0, 0, 255);
+  fill(200, 0, 255);
   ellipse(posX, posY, ballSize, ballSize);
 }
