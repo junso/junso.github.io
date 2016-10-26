@@ -27,8 +27,8 @@ function draw() {
   vY += accY;
   posX += vX;
   posY += vY;
-  text("vx: " + floor(posX), 100, 300);
-  text("vy: " + floor(accY), 100, 350);
+  text("vx: " + floor(vX), 100, 300);
+  text("vy: " + floor(vY), 100, 350);
   
   if (posX + ballSize / 2 >= windowWidth || posX - ballSize/2 <= 0) {
     vX = -vX;
