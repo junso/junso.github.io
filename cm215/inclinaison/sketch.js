@@ -16,6 +16,13 @@ function draw() {
   text("Rx: " + floor(rotationX), 100, 100);
   text("Ry: " + floor(rotationY), 100, 150);
   text("Rz: " + floor(rotationZ), 100, 200);
+  
+  accX = RotationX;
+  accY =RotationY;
+  vX += accX;
+  vY += accY;
+  posX += VitesseX;
+  posY += vitesseY;
 }
 
 
