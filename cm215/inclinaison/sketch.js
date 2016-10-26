@@ -21,8 +21,8 @@ function draw() {
   text("Ry: " + floor(rotationY), 100, 150);
   text("Rz: " + floor(rotationZ), 100, 200);
 
-  accX = rotationX;
-  accY = rotationY;
+  accX = rotationY;
+  accY = rotationX;
   vX += accX;
   vY += accY;
   posX += vX;
