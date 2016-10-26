@@ -5,11 +5,11 @@ function setup() {
 
   ellipseMode(CENTER);
   ballSize = 50;
-  vX = 0;
-  vY = 0;
-  posX = windowWidth / 2;
-  posY = windowHeight / 2;
-  f = 0.00001;
+  vX =0;
+  vY =0;
+  posX = windowWidth/2;
+  posY = windowHeight/2;
+ 
 }
 
 function draw() {
@@ -20,7 +20,7 @@ function draw() {
   text("Rx: " + floor(rotationX), 100, 100);
   text("Ry: " + floor(rotationY), 100, 150);
   text("Rz: " + floor(rotationZ), 100, 200);
-
+ f = 0.00001;
   accX = rotationY * f;
   accY = rotationX;
   vX += accX;
@@ -28,11 +28,11 @@ function draw() {
   posX += vX;
   posY += vY;
 
-  if ((posX + ballSize / 2) >= windowWidth) {
+  if ((posX + ballSize/2) >= windowWidth) {
     vX = -vX;
   }
   
-  if ((posY + ballSize / 2) <= windowHeight) {
+  if ((posY + ballSize/2) <= windowHeight) {
     vY = -vY;
   }
   
