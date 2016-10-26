@@ -4,17 +4,16 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   ellipseMode(CENTER);
-  ballSize = 20;
+  ballSize = 50;
   vX = 0;
   vY = 0;
   posX = windowWidth/2;
   posY = windowHeight/2;
-  f=0,01;
+  f=0.01;
 }
 
 function draw() {
   background(255);
-
   drawBall();
   textSize(45);
 
