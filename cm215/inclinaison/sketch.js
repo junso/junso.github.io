@@ -28,11 +28,11 @@ function draw() {
   posX += vX;
   posY += vY;
 
-  if ((posX + ballSize / 2) >= windowWidth) {
+  if ((posX + ballSize/2) >= windowWidth) {
     vX = -vX;
 
   } else {
-    ((posY +ballSize / 2) >= windowHeight)
+    ((posY +ballSize/2) >= windowHeight)
     vY = -vY;
   }
 }
