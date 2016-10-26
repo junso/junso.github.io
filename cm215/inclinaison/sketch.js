@@ -40,7 +40,7 @@ function draw() {
     vX = -vX;
   }
 
-  if ((posY + ballSize / 2) <= windowHeight || (posY - ballSize/2) <= 0) {
+  if ((posY + ballSize / 2) >= windowHeight || (posY - ballSize/2) <= 0) {
     vY = -vY;
   }
 }
