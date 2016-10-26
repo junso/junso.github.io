@@ -1,5 +1,4 @@
-var ballSize, vY, vZ, accX,accY, posX;
-posY;
+var ballSize, vY, vZ, accX,accY, posX,posY;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -14,7 +13,7 @@ function draw() {
   drawBall();
   textSize(45);
   accX = Ry;
-  accX = Rx;
+  accY = Rx;
   vitesseX += accX;
   vitesseY += accY;
   posX += VitesseX;
