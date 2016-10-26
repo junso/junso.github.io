@@ -21,20 +21,24 @@ function draw() {
   text("Rz: " + floor(rotationZ), 100, 200);
 
   f = 0.1;
+  
   accX = rotationY * f;
   accY = rotationX * f;
+  
   vX += accX;
   vY += accY;
+  
   posX += vX;
   posY += vY;
+  
   text("accY: " + floor(accY), 100, 300);
   text("vy: " + floor(vY), 100, 350);
   
-  if (posX + ballSize / 2 >= windowWidth || posX - ballSize/2 <= 0) {
+  if ((posX + ballSize / 2) >= windowWidth || (posX - ballSize/2) <= 0) {
     vX = -vX;
   }
 
-  if (posY + ballSize / 2 <= windowHeight || posY - ballSize/2 <= 0) {
+  if ((posY + ballSize / 2) <= windowHeight || (posY - ballSize/2) <= 0) {
     vY = -vY;
   }
 }
