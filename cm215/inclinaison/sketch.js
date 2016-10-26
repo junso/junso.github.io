@@ -22,7 +22,7 @@ function draw() {
   text("Rz: " + floor(rotationZ), 100, 200);
  f = 0.00001;
   accX = rotationY * f;
-  accY = rotationX;
+  accY = rotationX*f;
   vX += accX;
   vY += accY;
   posX += vX;
