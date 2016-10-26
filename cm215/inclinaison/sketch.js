@@ -9,7 +9,7 @@ function setup() {
   vY = 0;
   posX = windowWidth/2;
   posY = windowHeight/2;
-  f=0.001;
+  f=0.00001;
 }
 
 function draw() {
