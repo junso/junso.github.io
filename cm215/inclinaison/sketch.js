@@ -18,6 +18,7 @@ function draw() {
   text("Rz: " + floor(rotationZ), 100, 200);
 }
 
+
 function drawBall() {
   fill(100);
   ellipse(windowWidth / 2, rotationX + windowHeight / 2, ballSize, ballSize);
