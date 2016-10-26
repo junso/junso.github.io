@@ -20,7 +20,7 @@ function draw() {
   text("Ry: " + floor(rotationY), 100, 150);
   text("Rz: " + floor(rotationZ), 100, 200);
 
-  f = 0.1;
+  f = 0.01;
   
   accX = rotationY * f;
   accY = rotationX * f;
@@ -46,6 +46,6 @@ function draw() {
 }
 
 function drawBall() {
-  fill(200, 0, 255);
+  fill(200, 0, 100);
   ellipse(posX, posY, ballSize, ballSize);
 }
