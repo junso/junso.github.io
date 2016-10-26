@@ -16,7 +16,7 @@ function draw() {
   accX = Ry;
   accX = Rx;
   vitesseX += accX;
-  VitesseY += accY;
+  vitesseY += accY;
   posX += VitesseX;
   posY += vitesseY;
 
