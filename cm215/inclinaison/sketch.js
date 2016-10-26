@@ -28,16 +28,11 @@ function draw() {
   posX += vX;
   posY += vY;
 
-  if ((posX + ballSize / 2) >= windowWidth) {
+  if ((posX + ballSize / 2) >= windowWidth || posX = < 0) {
     vX = -vX;
-
   }
-  if ((posY + ballSize / 2) >= windowHeight) {
-    vY = -vY;
-  }
-}
 
-function drawBall() {
-  fill(100);
-  ellipse(posX, posY, ballSize, ballSize);
-}
+  function drawBall() {
+    fill(200);
+    ellipse(posX, posY, ballSize, ballSize);
+  }
