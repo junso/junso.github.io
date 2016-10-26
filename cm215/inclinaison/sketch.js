@@ -1,4 +1,4 @@
-var ballSize, vY, vX, accX, accY, posX, posY;
+var ballSize, vY, vX, accX, accY, posX, posY, f;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -9,6 +9,7 @@ function setup() {
   vY = 0;
   posX = windowWidth/2;
   posY = windowHeight/2;
+  f=0,01;
 }
 
 function draw() {
@@ -21,7 +22,7 @@ function draw() {
   text("Ry: " + floor(rotationY), 100, 150);
   text("Rz: " + floor(rotationZ), 100, 200);
 
-  accX = rotationY;
+  accX = rotationY * f;
   accY = rotationX;
   vX += accX;
   vY += accY;
