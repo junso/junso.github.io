@@ -1,6 +1,7 @@
 var ballSize, vY, vX, accX, accY, posX, posY, f;
 
-function setup() {
+function setup()
+{
   createCanvas(windowWidth, windowHeight);
 
   ellipseMode(CENTER);
@@ -12,7 +13,8 @@ function setup() {
   f=0.00001;
 }
 
-function draw() {
+function draw() 
+{
   background(255);
   drawBall();
   textSize(45);
@@ -28,10 +30,9 @@ function draw() {
   posX += vX;
   posY += vY;
   
-  if ( < ){
-      line();
-    } else {
-      line(touches[i].x, touches[i].y, touches[0].x, touches[0].y);
+  if (posX = windowWidth)
+  {
+     vX= -vX;
     }
 }
 
