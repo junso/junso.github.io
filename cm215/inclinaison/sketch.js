@@ -30,8 +30,8 @@ function draw()
   posX += vX;
   posY += vY;
   
-  if (posX <= windowWidth)
-  {
+  if ( (posX- ballSize/2) >= windowWidth)
+{
      vX= -vX;
     }
 }
