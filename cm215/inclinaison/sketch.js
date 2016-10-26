@@ -29,11 +29,12 @@ function draw() {
   posY += vY;
   text("vx: " + floor(posX), 100, 300);
   text("vy: " + floor(accY), 100, 350);
-  if (posX + ballSize / 2 >= windowWidth || posX - ballSize <= 0) {
+  
+  if (posX + ballSize / 2 >= windowWidth || posX - ballSize/2 <= 0) {
     vX = -vX;
   }
 
-  if (posY + ballSize / 2 <= windowHeight || posY - ballSize <= 0) {
+  if (posY + ballSize / 2 <= windowHeight || posY - ballSize/2 <= 0) {
     vY = -vY;
   }
 }
