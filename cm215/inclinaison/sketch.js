@@ -30,7 +30,7 @@ function draw()
   posX += vX;
   posY += vY;
   
-  if (posX = windowWidth)
+  if (posX <= windowWidth)
   {
      vX= -vX;
     }
