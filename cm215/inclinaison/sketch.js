@@ -40,6 +40,6 @@ function draw() {
 }
 
 function drawBall() {
-  fill(250);
+  fill(250,25,100);
   ellipse(posX, posY, ballSize, ballSize);
 }
