@@ -1,4 +1,4 @@
-var ballSize, vY, vZ, accX, accY, posX, posY;
+var ballSize, vY, vX, accX, accY, posX, posY;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -8,7 +8,7 @@ function setup() {
   vX = 0;
   vY = 0;
   posX = windowWidth/2;
-  posY = windowHeight/    2;
+  posY = windowHeight/2;
 }
 
 function draw() {
