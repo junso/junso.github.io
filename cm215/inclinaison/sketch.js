@@ -7,7 +7,7 @@ function setup() {
   ellipseMode(CENTER);
   bonus = 22;
   malus = 20;
-  block = 20;
+  block = 25;
 
   ballSize = 50;
   vX = 0;
