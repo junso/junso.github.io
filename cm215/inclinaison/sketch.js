@@ -18,7 +18,7 @@ function setup() {
   blpX = random(50, windowWidth);
   blpY = random(50, windowHeight);
 
-  ballSize = 50;
+  ballSize = 30;
   vX = 0;
   vY = 0;
   posX = windowWidth / 2;
@@ -51,12 +51,12 @@ function draw() {
   posX += vX;
   posY += vY;
   
-  //texte afficher
+  /*texte afficher
   text("accX: " + floor(accX), 100, 300);
   text("vX: " + floor(vX), 100, 350);
   text("accY: " + floor(accY), 100, 400);
   text("vY: " + floor(vY), 100, 450);
-  
+  */
   //condition de rebond sur les bords
   if ((posX + ballSize / 2) >= windowWidth || (posX - ballSize / 2) <= 0) {
     vX = -vX;
