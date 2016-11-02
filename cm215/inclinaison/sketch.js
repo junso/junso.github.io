@@ -1,4 +1,4 @@
-var ballSize, vY, vX, accX, accY, posX, posY, f, bonus, malus, block, bpX, bpY, blpX, blpY, mpX, mpY,score;
+var ballSize, vY, vX, accX, accY, posX, posY, f, bonus, malus, block, bpX, bpY, blpX, blpY, mpX, mpY,score,bounce;
 
 function setup() {
 
@@ -27,7 +27,7 @@ function setup() {
 
 function draw() {
   background(255);
-    score= 0;
+  score= 0;
   bomablock();
   drawBall();
   
@@ -50,13 +50,16 @@ function draw() {
   //position
   posX += vX;
   posY += vY;
-  text("score:" + floor, 10, 17);
+  
+  text("score:" + score, 10, 17);
+  
   /*texte afficher
   text("accX: " + floor(accX), 100, 300);
   text("vX: " + floor(vX), 100, 350);
   text("accY: " + floor(accY), 100, 400);
   text("vY: " + floor(vY), 100, 450);
   */
+  
   //condition de rebond sur les bords
   if ((posX + ballSize / 2) >= windowWidth || (posX - ballSize / 2) <= 0) {
     vX = -vX;
@@ -64,10 +67,16 @@ function draw() {
   if ((posY + ballSize / 2) >= windowHeight || (posY - ballSize / 2) <= 0) {
     vY = -vY;
   }
-  if(dist ){
+  
+  if(dist (posX,posY,bpX,bpY) <= ballSize/2+bonus/2 ){
+    score=score+10;
     
-  }else if{
-    
+  }else if(dist (posX,posY,mpX,mpY) <= ballSize/2+malus/2 ){
+    score=score -10;
+  
+  }else if(dist (posX,posY,blpX,blpY) <= ballSize/2+block/2 ){
+    vX=-vX;
+    vY=-vY;
   }else{
     
   }
