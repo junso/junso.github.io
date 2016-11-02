@@ -1,11 +1,11 @@
-var ballSize, vY, vX, accX, accY, posX, posY, f, bonus, malus, block, bpX, bpY, blpX, blpY, mpX, mpY, score, bounce;
+var ballSize, vY, vX, accX, accY, posX, posY, f, bonus, malus, block, bpX, bpY, blpX, blpY, mpX, mpY, score;
 
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
 
   ellipseMode(CENTER);
-
+  score = 0;
   bonus = 25;
   bpX = random(50, windowWidth);
   bpY = random(50, windowHeight);
@@ -27,7 +27,7 @@ function setup() {
 
 function draw() {
   background(255);
-  score = 0;
+
   bomablock();
   drawBall();
 
