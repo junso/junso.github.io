@@ -37,7 +37,7 @@ function draw() {
   text("Rz: " + floor(rotationZ), 100, 200);
   */
   // soit f la friction.
-  f = 0.01;
+  f = 0.001;
   
   //accélération
   accX = rotationY * f;
@@ -63,6 +63,11 @@ function draw() {
   }
   if ((posY + ballSize / 2) >= windowHeight || (posY - ballSize / 2) <= 0) {
     vY = -vY;
+  }
+  if(dist ){
+    
+  }else if{
+    
   }
 }
 
