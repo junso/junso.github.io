@@ -9,6 +9,10 @@ function setup() {
   vY = 0;
   posX = windowWidth/2;
   posY = windowHeight/2;
+  
+  bonus = 20;
+  malus = 20;
+  block = 20;
 }
 
 function draw() {
