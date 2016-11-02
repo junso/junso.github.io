@@ -1,4 +1,4 @@
-var ballSize, vY, vX, accX, accY, posX, posY, f, bonus, malus, block,bnpX,bnpY;
+var ballSize, vY, vX, accX, accY, posX, posY, f, bonus, malus, block;
 
 function setup() {
   
@@ -6,8 +6,6 @@ function setup() {
 
   ellipseMode(CENTER);
   bonus = 22;
-  bnpX = windowWidth;
-  bnpY = windowHeight;
   malus = 20;
   block = 20;
   
@@ -66,7 +64,7 @@ function drawBall() {
 }
   function bomablock(){
   fill(200,0,100);
-  ellipse(bnpX, bnpY, bonus,bonus)
+  ellipse(posX, posY, bonus,bonus)
   
   }
  
