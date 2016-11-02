@@ -31,11 +31,11 @@ function draw() {
   bomablock();
   drawBall();
   
-  textSize(45);
+  /*textSize(45);
   text("Rx: " + floor(rotationX), 100, 100);
   text("Ry: " + floor(rotationY), 100, 150);
   text("Rz: " + floor(rotationZ), 100, 200);
-  
+  */
   // soit f la friction.
   f = 0.01;
   
