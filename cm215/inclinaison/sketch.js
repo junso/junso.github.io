@@ -1,4 +1,4 @@
-var ballSize, vY, vX, accX, accY, posX, posY, f, bonus, malus, block, bpX, bpY, blpX, blpY, mpX, mpY;
+var ballSize, vY, vX, accX, accY, posX, posY, f, bonus, malus, block, bpX, bpY, blpX, blpY, mpX, mpY,score;
 
 function setup() {
 
@@ -27,7 +27,7 @@ function setup() {
 
 function draw() {
   background(255);
-  
+    score= 0;
   bomablock();
   drawBall();
   
@@ -50,7 +50,7 @@ function draw() {
   //position
   posX += vX;
   posY += vY;
-  
+  text("score:" + floor, 10, 17);
   /*texte afficher
   text("accX: " + floor(accX), 100, 300);
   text("vX: " + floor(vX), 100, 350);
@@ -67,6 +67,8 @@ function draw() {
   if(dist ){
     
   }else if{
+    
+  }else{
     
   }
 }
