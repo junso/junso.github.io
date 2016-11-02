@@ -1,6 +1,7 @@
-var ballSize, vY, vX, accX, accY, posX, posY, f,bonus,malus,block;
+var ballSize, vY, vX, accX, accY, posX, posY, f, bonus, malus, block;
 
 function setup() {
+  
   createCanvas(windowWidth, windowHeight);
 
   ellipseMode(CENTER);
@@ -10,13 +11,14 @@ function setup() {
   posX = windowWidth/2;
   posY = windowHeight/2;
   
-  bonus = 20;
+  bonus = 22;
   malus = 20;
   block = 20;
 }
 
 function draw() {
   background(255);
+  bomablock();
   drawBall();
   textSize(45);
 
@@ -50,10 +52,14 @@ function draw() {
 }
 
 function drawBall() {
-  fill(200, 0, 100);
+  
+  fill(200, 105, 100);
   ellipse(posX, posY, ballSize, ballSize);
   
-    fill(200,0,100);
-  ellipse(posX, posY, bonus,bonus);
-
 }
+  function bomablock(){
+     fill(200,0,100);
+  ellipse(posX, posY, bonus,bonus)
+  
+  }
+ 
