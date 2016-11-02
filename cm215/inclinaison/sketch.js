@@ -94,7 +94,7 @@ function bomablock() {
   fill(255, 0, 255);
   ellipse(bpX, bpY, bonus, bonus);
 
-  fill(150, 0, 0);
+  fill(255, 255, 0);
   ellipse(blpX, blpY, block, block);
 
   fill(0, 0, 255);
