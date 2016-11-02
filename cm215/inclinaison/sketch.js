@@ -1,4 +1,4 @@
-var ballSize, vY, vX, accX, accY, posX, posY, f;
+var ballSize, vY, vX, accX, accY, posX, posY, f,bonus,malus,block;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
