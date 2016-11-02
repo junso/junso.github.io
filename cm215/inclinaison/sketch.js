@@ -6,15 +6,15 @@ function setup() {
 
   ellipseMode(CENTER);
 
-  bonus = 20;
+  bonus = 25;
   bpX = random(50, windowWidth);
   bpY = random(50, windowHeight);
 
-  malus = 20;
+  malus = 25;
   mpX = random(50, windowWidth);
   mpY = random(50, windowHeight);
 
-  block = 20;
+  block = 25;
   blpX = random(50, windowWidth);
   blpY = random(50, windowHeight);
 
