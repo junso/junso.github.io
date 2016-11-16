@@ -1,4 +1,6 @@
-var ballSize, vY, vX, accX, accY, posX, posY, f, bonus, malus, block, bpX, bpY, blpX, blpY, mpX, mpY, score;
+var ballSize, vY, vX, accX, accY, posX, posY, 
+f, bonus, malus, block, bpX, bpY, blpX, blpY, mpX,
+mpY, score;
 
 function setup() {
 
