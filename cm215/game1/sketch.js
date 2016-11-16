@@ -69,7 +69,7 @@ function draw() {
     vX = -vX;
   }
   if ((posY + ballSize / 2) >= windowHeight || (posY - ballSize / 2) <= 0) {
-    vY = -vY;
+    vY =-vY;
   }
 
   if (dist(posX, posY, bpX, bpY) <= ballSize / 2 + bonus / 2) {
@@ -102,6 +102,7 @@ function Obstacle(bonus) {
   this.size = random(20, 50);
   this.color = color(random(0, 255), random(0, 255), random(0, 255));
 }
+
 function Obstacle(block) {
   this.type = block;
   this.xPos = random(0, windowWidth);
@@ -120,7 +121,7 @@ function drawBall() {
   ellipse(posX, posY, ballSize, ballSize);
 }
 */
-function bomablock() {
+/*function bomablock() {
 
   fill(255, 0, 255);
   ellipse(bpX, bpY, bonus, bonus);
@@ -130,5 +131,6 @@ function bomablock() {
 
   fill(100, 255, 255);
   ellipse(mpX, mpY, malus, malus);
-
+*/
+}
 }
