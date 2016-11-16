@@ -38,7 +38,7 @@ function draw() {
 
   background(255);
   bomablock();
-  drawBall();
+ /* drawBall();*/
 
   /*textSize(45);
   text("Rx: " + floor(rotationX), 100, 100);
@@ -58,13 +58,11 @@ function draw() {
   posY += vY;
 
   text("score:" + score, 10, 17);
-
-  /*texte afficher
+  /*texte afficher*/
   text("accX: " + floor(accX), 100, 300);
   text("vX: " + floor(vX), 100, 350);
   text("accY: " + floor(accY), 100, 400);
   text("vY: " + floor(vY), 100, 450);
-  */
 
   //condition de rebond sur les bords
   if ((posX + ballSize / 2) >= windowWidth || (posX - ballSize / 2) <= 0) {
@@ -104,7 +102,6 @@ function Obstacle(bonus) {
   this.size = random(20, 50);
   this.color = color(random(0, 255), random(0, 255), random(0, 255));
 }
-
 function Obstacle(block) {
   this.type = block;
   this.xPos = random(0, windowWidth);
@@ -117,12 +114,12 @@ function Obstacle(block) {
     ellipse(this.xPos, this.yPos, this.size, this.size);
   }
 }
-
+/*
 function drawBall() {
   fill(200, 10, 0);
   ellipse(posX, posY, ballSize, ballSize);
 }
-
+*/
 function bomablock() {
 
   fill(255, 0, 255);
