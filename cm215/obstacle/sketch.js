@@ -26,3 +26,4 @@
       ellipse(this.xPos, this.yPos, this.size, this.size);
     }
   }
+  

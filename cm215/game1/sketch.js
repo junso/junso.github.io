@@ -1,136 +1,81 @@
-var ballSize, vY, vX, accX, accY, posX, posY, f, bonus, malus, block, bpX, bpY, blpX, blpY, mpX, mpY, score;
-var obstacles = [];
+  var obstacles = []; /* Aray */
+  var ballSize, vY, vX, accX, accY, xPos, yPos, f, bonus, malus, block, score, typeObstacle;
 
-function setup() {
+  function setup() {
+    createCanvas(windowWidth, windowHeight);
+    ellipseMode(CENTER);
+    var typeObstacle = 0;
 
-  createCanvas(windowWidth, windowHeight);
-
-  ellipseMode(CENTER);
-
-  for (var i = 0; i < 10; i++) {
-    obstacles[i] = new Obstacle("malus");
+    for (var i = 0; i < 12; i++) {
+      if (typeObstacle === 0) {
+        obstacles[i] = new Obstacle("bonus");
+      } else if (typeObstacle == 1) {
+        obstacles[i] = new Obstacle("malus");
+      } else if (typeObstacle == 2) {
+        obstacles[i] = new Obstacle("block");
+      }
+      //typeObstacle = floor(random(0,3));
+      if (typeObstacle < 2) {
+        typeObstacle++;
+      } else {
+        typeObstacle = 0;
+      }
+    }
+    score = 0;
+    ballSize = 30;
+    vX = 0;
+    vY = 0;
+    posX = windowWidth / 2;
+    posY = windowHeight / 2;
   }
 
-  score = 0;
-  bonus = 25;
-  bpX = random(50, windowWidth);
-  bpY = random(50, windowHeight);
+  function draw() {
+    background(255);
+    drawBall();
+    // soit f la friction.
+    f = 0.001;
+    //accélération
+    accX = rotationY * f;
+    accY = rotationX * f;
+    //vitesse
+    vX += accX;
+    vY += accY;
+    //position
+    posX += vX;
+    posY += vY;
+    /*********************************************************************************/
+    text("score:" + score, 10, 17);
+    //condition de rebond sur les bords de gauche et de droite.
+    if ((xPos + ballSize / 2) >= windowWidth || (xPos - ballSize / 2) <= 0) {
+      vX = -vX;
+    }
+    //condition de rebond sur les bords du haut et du bas.
+    if ((yPos + ballSize / 2) >= windowHeight || (xPos - ballSize / 2) <= 0) {
+      vY = -vY;
+    }
+    //condition de rebond sur les obstacles.
+    for (var i = 0; i < 2; i++) {
 
-  malus = 25;
-  mpX = random(50, windowWidth);
-  mpY = random(50, windowHeight);
+      if (dist(posX, posY, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i] / 2) {
+        score = score + 10;
+      }
+    }
+    /************************************************ fin fonction draw ************************************************/
+    function Obstacle(genre) {
+      this.type = genre;
+      this.xPos = random(0, windowWidth);
+      this.yPos = random(0, windowHeight);
+      this.size = random(25, 50);
+      this.color = color(random(0, 255), random(0, 255), random(0, 255));
 
-  block = 25;
-  blpX = random(50, windowWidth);
-  blpY = random(50, windowHeight);
+      this.display = function() {
+        fill(this.color);
+        ellipse(this.xPos, this.yPos, this.size, this.size);
+      }
+    }
 
-  ballSize = 30;
-  vX = 0;
-  vY = 0;
-  posX = windowWidth / 2;
-  posY = windowHeight / 2;
-}
-
-function draw() {
-  for (var i = 0; i < 10; i++) {
-    obstacles[i].display();
+    function drawBall() {
+      fill(200, 10, 0);
+      ellipse(posX, posY, ballSize, ballSize);
+    }
   }
-
-  background(255);
-  bomablock();
- /* drawBall();*/
-
-  /*textSize(45);
-  text("Rx: " + floor(rotationX), 100, 100);
-  text("Ry: " + floor(rotationY), 100, 150);
-  text("Rz: " + floor(rotationZ), 100, 200);
-  */
-  // soit f la friction.
-  f = 0.001;
-  //accélération
-  accX = rotationY * f;
-  accY = rotationX * f;
-  //vitesse
-  vX += accX;
-  vY += accY;
-  //position
-  posX += vX;
-  posY += vY;
-
-  text("score:" + score, 10, 17);
-  /*texte afficher*/
-  text("accX: " + floor(accX), 100, 300);
-  text("vX: " + floor(vX), 100, 350);
-  text("accY: " + floor(accY), 100, 400);
-  text("vY: " + floor(vY), 100, 450);
-
-  //condition de rebond sur les bords
-  if ((posX + ballSize / 2) >= windowWidth || (posX - ballSize / 2) <= 0) {
-    vX = -vX;
-  }
-  if ((posY + ballSize / 2) >= windowHeight || (posY - ballSize / 2) <= 0) {
-    vY =-vY;
-  }
-
-  if (dist(posX, posY, bpX, bpY) <= ballSize / 2 + bonus / 2) {
-    score = score + 10;
-
-  } else if (dist(posX, posY, mpX, mpY) <= ballSize / 2 + malus / 2) {
-    score = score - 10;
-
-  } else if (dist(posX, posY, blpX, blpY) <= ballSize / 2 + block / 2) {
-    vX = -vX;
-    vY = -vY;
-  } else {
-    vX = vX;
-    vY = vY;
-  }
-}
-
-function Obstacle(malus) {
-  this.type = malus;
-  this.xPos = random(0, windowWidth);
-  this.yPos = random(0, windowHeight);
-  this.size = random(20, 50);
-  this.color = color(random(0, 255), random(0, 255), random(0, 255));
-}
-
-function Obstacle(bonus) {
-  this.type = bonus;
-  this.xPos = random(0, windowWidth);
-  this.yPos = random(0, windowHeight);
-  this.size = random(20, 50);
-  this.color = color(random(0, 255), random(0, 255), random(0, 255));
-}
-
-function Obstacle(block) {
-  this.type = block;
-  this.xPos = random(0, windowWidth);
-  this.yPos = random(0, windowHeight);
-  this.size = random(20, 50);
-  this.color = color(random(0, 255), random(0, 255), random(0, 255));
-
-  this.display = function() {
-    fill(this.color);
-    ellipse(this.xPos, this.yPos, this.size, this.size);
-  }
-}
-/*
-function drawBall() {
-  fill(200, 10, 0);
-  ellipse(posX, posY, ballSize, ballSize);
-}
-*/
-/*function bomablock() {
-
-  fill(255, 0, 255);
-  ellipse(bpX, bpY, bonus, bonus);
-
-  fill(255, 255, 0);
-  ellipse(blpX, blpY, block, block);
-
-  fill(100, 255, 255);
-  ellipse(mpX, mpY, malus, malus);
-*/
-}
-}
