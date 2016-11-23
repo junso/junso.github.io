@@ -38,7 +38,7 @@
     drawBall();
     /*Obstacle();*/
     // soit f la friction.
-    f = 0.01;
+    f = 0.1;
     //accélération
     accX = rotationY * f;
     accY = rotationX * f;
@@ -56,7 +56,7 @@
       vX = -vX;
     }
     //condition de rebond sur les bords du haut et du bas.
-    if ((yPos + ballSize / 2) >= windowHeight || (xPos - ballSize / 2) <= 0) {
+    if ( (yPos + ballSize / 2) >= windowHeight || (xPos - ballSize / 2) <= 0) {
       vY = -vY;
     }
     //condition de rebond sur les obstacles.
@@ -68,7 +68,6 @@
     }
   }
     /******************************************** fin fonction draw ******************************************/
-
     function Obstacle(genre) {
       this.type = genre;
       this.xPos = random(0, windowWidth);
@@ -81,7 +80,6 @@
         ellipse(this.xPos, this.yPos, this.size, this.size);
       }
     }
-
     function drawBall() {
       fill(200, 10, 0);
       ellipse(xPos, yPos, ballSize, ballSize);
