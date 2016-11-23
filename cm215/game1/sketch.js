@@ -64,7 +64,7 @@
     }
     //condition de rebond sur les obstacles.
 
-    for (i = 0; i < 2; i++) {
+    for (i = 0; i < 3; i++) {
 
       if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i] / 2) {
 
