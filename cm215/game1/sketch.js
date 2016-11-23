@@ -56,7 +56,7 @@
       vX = -vX;
     }
     //condition de rebond sur les bords du haut et du bas.
-    if ( (yPos + ballSize / 2) >= windowHeight || (xPos - ballSize / 2) <= 0) {
+    if ( (yPos + ballSize / 2) >= windowHeight || (yPos - ballSize / 2) <= 0) {
       vY = -vY;
     }
     //condition de rebond sur les obstacles.
