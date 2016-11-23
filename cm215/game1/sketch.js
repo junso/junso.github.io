@@ -38,7 +38,7 @@
     drawBall();
     /*Obstacle();*/
     // soit f la friction.
-    f = 0.001;
+    f = 0.1;
     //accélération
     accX = rotationY * f;
     accY = rotationX * f;
