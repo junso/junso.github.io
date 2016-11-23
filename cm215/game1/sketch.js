@@ -15,7 +15,7 @@
     vY = 0;
     score = 0;
     ballSize = 30;
-    bounce = 0.05;
+    bounce = 0.15;
     colision === false;
     xPos = windowWidth / 2;
     yPos = windowHeight / 2;
