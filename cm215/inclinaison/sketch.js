@@ -89,7 +89,6 @@ function drawBall() {
   fill(200, 10, 0);
   ellipse(posX, posY, ballSize, ballSize);
 }
-
 function bomablock() {
 
   fill(255, 0, 255);
