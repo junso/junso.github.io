@@ -27,8 +27,8 @@
     ballSize = 30;
     vX = 0;
     vY = 0;
-    posX = windowWidth / 2;
-    posY = windowHeight / 2;
+    xPos = windowWidth / 2;
+    yPos = windowHeight / 2;
   }
 
   function draw() {
@@ -36,9 +36,9 @@
     background(255);
 
     drawBall();
-
+    /*Obstacle();*/
     // soit f la friction.
-    f = 0.001;
+    f = 0.01;
     //accélération
     accX = rotationY * f;
     accY = rotationX * f;
@@ -46,10 +46,9 @@
     vX += accX;
     vY += accY;
     //position
-    posX += vX;
-    posY += vY;
-
-    /*********************************************************************************/
+    xPos += vX;
+    yPos += vY;
+    /******************************************DEBUT DES CONDITIONS***************************************/
 
     text("score:" + score, 10, 17);
     //condition de rebond sur les bords de gauche et de droite.
@@ -63,12 +62,12 @@
     //condition de rebond sur les obstacles.
     for (var i = 0; i < 2; i++) {
 
-      if (dist(posX, posY, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i] / 2) {
+      if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i] / 2) {
         score = score + 10;
       }
     }
   }
-    /************************************************ fin fonction draw ************************************************/
+    /******************************************** fin fonction draw ******************************************/
 
     function Obstacle(genre) {
       this.type = genre;
@@ -85,5 +84,5 @@
 
     function drawBall() {
       fill(200, 10, 0);
-      ellipse(posX, posY, ballSize, ballSize);
+      ellipse(xPos, yPos, ballSize, ballSize);
     }
