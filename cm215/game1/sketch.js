@@ -6,20 +6,10 @@
     ellipseMode(CENTER);
     var typeObstacle = 0;
 
-    for (var i = 0; i < 6; i++) {
-      if (typeObstacle === 0) {
-        obstacles[i] = new Obstacle("bonus");
-      } else if (typeObstacle == 1) {
-        obstacles[i] = new Obstacle("malus");
-      } else if (typeObstacle == 2) {
-        obstacles[i] = new Obstacle("block");
-      }
-      //typeObstacle = floor(random(0,3));
-      if (typeObstacle < 2) {
-        typeObstacle++;
-      } else {
-        typeObstacle = 0;
-      }
+    for (var i = 0; i < 3; i++) {
+        obstacles[0] = new Obstacle("bonus");
+        obstacles[1] = new Obstacle("malus");
+        obstacles[2] = new Obstacle("block");
     }
     vX = 0;
     vY = 0;
@@ -36,6 +26,10 @@
     background(255);
     fill(0);
     drawBall();
+      for ( i = 0; i < 3;i++){
+      obstacles[i].drawObstacles();
+      }
+    
     // soit f la friction.
     f = 0.1;
     //accélération
@@ -63,11 +57,11 @@
     }
     //condition de rebond sur les obstacles.
 
-    for (var i = 0; i < 2; i++) {
+    for ( i = 0; i < 2; i++) {
 
       if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i] / 2) {
 
-        if (obstacles[i].type === "Obstacle") {
+        if (obstacles[i].type === "block") {
           vX = -vX * bounce;
           vY = -vY * bounce;
 
@@ -102,7 +96,7 @@
     this.color    = color(random(0, 255), random(0, 255), random(0, 255));
     this.colision = false;
 
-    this.display = function() {
+    this.drawObstacles = function() {
       fill(this.color);
       ellipse(this.xPos, this.yPos, this.size, this.size);
     }
