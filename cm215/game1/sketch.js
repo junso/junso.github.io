@@ -7,13 +7,15 @@
     var typeObstacle = 0;
 
     for (var i = 0; i < 12; i++) {
-      if (typeObstacle === 0) {
+
+      if (typeObstacle == 0) {
         obstacles[i] = new Obstacle("bonus");
       } else if (typeObstacle == 1) {
         obstacles[i] = new Obstacle("malus");
       } else if (typeObstacle == 2) {
         obstacles[i] = new Obstacle("block");
       }
+
       //typeObstacle = floor(random(0,3));
       if (typeObstacle < 2) {
         typeObstacle++;
@@ -30,8 +32,11 @@
   }
 
   function draw() {
+
     background(255);
+
     drawBall();
+
     // soit f la friction.
     f = 0.001;
     //accélération
@@ -43,7 +48,9 @@
     //position
     posX += vX;
     posY += vY;
+
     /*********************************************************************************/
+
     text("score:" + score, 10, 17);
     //condition de rebond sur les bords de gauche et de droite.
     if ((xPos + ballSize / 2) >= windowWidth || (xPos - ballSize / 2) <= 0) {
@@ -60,7 +67,9 @@
         score = score + 10;
       }
     }
+
     /************************************************ fin fonction draw ************************************************/
+
     function Obstacle(genre) {
       this.type = genre;
       this.xPos = random(0, windowWidth);
