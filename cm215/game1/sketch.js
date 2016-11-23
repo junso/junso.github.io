@@ -49,15 +49,21 @@
 
     if ((xPos + ballSize / 2) >= windowWidth) {
       vX = -vX * bounce;
-      xPos = windowWidth - ballSize;
+      xPos = windowWidth - ballSize /2;
     }
       else if ((xPos - ballSize / 2) <= 0) {
       vX = -vX * bounce;
+      xPos= ballSize / 2;
     }
     //condition de rebond sur les bords du haut et du bas.
 
-    if ((yPos + ballSize / 2) >= windowHeight || (yPos - ballSize / 2) <= 0) {
+    if ((yPos + ballSize / 2) >= windowHeight ){
+        vX = -vX * bounce;
+      xPos = windowHeight - ballSize /2;
+    }
+    else if ((yPos - ballSize / 2) <= 0) {
       vY = -vY * bounce;
+      xPos= ballSize / 2;
     }
     //condition de rebond sur les obstacles.
 
