@@ -47,7 +47,11 @@
     text("score:" + score, 10, 17);
     //condition de rebond sur les bords de gauche et de droite.
 
-    if ((xPos + ballSize / 2) >= windowWidth || (xPos - ballSize / 2) <= 0) {
+    if ((xPos + ballSize / 2) >= windowWidth) {
+      vX = -vX * bounce;
+      xPos = windowWidth - ballSize;
+    }
+      else if ((xPos - ballSize / 2) <= 0) {
       vX = -vX * bounce;
     }
     //condition de rebond sur les bords du haut et du bas.
