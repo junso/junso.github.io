@@ -67,7 +67,7 @@
         score = score + 10;
       }
     }
-
+  }
     /************************************************ fin fonction draw ************************************************/
 
     function Obstacle(genre) {
@@ -87,4 +87,3 @@
       fill(200, 10, 0);
       ellipse(posX, posY, ballSize, ballSize);
     }
-  }
