@@ -7,9 +7,9 @@
     var typeObstacle = 0;
 
     for (var i = 0; i < 3; i++) {
-        obstacles[0] = new Obstacle("bonus");
-        obstacles[1] = new Obstacle("malus");
-        obstacles[2] = new Obstacle("block");
+      obstacles[0] = new Obstacle("bonus");
+      obstacles[1] = new Obstacle("malus");
+      obstacles[2] = new Obstacle("block");
     }
     vX = 0;
     vY = 0;
@@ -26,10 +26,10 @@
     background(255);
     fill(0);
     drawBall();
-      for ( i = 0; i < 3;i++){
+    for (i = 0; i < 3; i++) {
       obstacles[i].drawObstacles();
-      }
-    
+    }
+
     // soit f la friction.
     f = 0.1;
     //accélération
@@ -49,25 +49,23 @@
 
     if ((xPos + ballSize / 2) >= windowWidth) {
       vX = -vX * bounce;
-      xPos = windowWidth - ballSize /2;
-    }
-      else if ((xPos - ballSize / 2) <= 0) {
+      xPos = windowWidth - ballSize / 2;
+    } else if ((xPos - ballSize / 2) <= 0) {
       vX = -vX * bounce;
-      xPos= ballSize / 2;
+      xPos = ballSize / 2;
     }
     //condition de rebond sur les bords du haut et du bas.
 
-    if ((yPos + ballSize / 2) >= windowHeight ){
-        vX = -vX * bounce;
-      xPos = windowHeight - ballSize /2;
-    }
-    else if ((yPos - ballSize / 2) <= 0) {
+    if ((yPos + ballSize / 2) >= windowHeight) {
       vY = -vY * bounce;
-      xPos= ballSize / 2;
+      yPos = windowHeight - ballSize / 2;
+    } else if ((yPos - ballSize / 2) <= 0) {
+      vY = -vY * bounce;
+      yPos = ballSize / 2;
     }
     //condition de rebond sur les obstacles.
 
-    for ( i = 0; i < 2; i++) {
+    for (i = 0; i < 2; i++) {
 
       if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i] / 2) {
 
@@ -99,11 +97,11 @@
   }
 
   function Obstacle(obstacles) {
-    this.type     = obstacles;
-    this.xPos     = random(0, windowWidth);
-    this.yPos     = random(0, windowHeight);
-    this.size     = random(25, 50);
-    this.color    = color(random(0, 255), random(0, 255), random(0, 255));
+    this.type = obstacles;
+    this.xPos = random(0, windowWidth);
+    this.yPos = random(0, windowHeight);
+    this.size = random(25, 50);
+    this.color = color(random(0, 255), random(0, 255), random(0, 255));
     this.colision = false;
 
     this.drawObstacles = function() {
