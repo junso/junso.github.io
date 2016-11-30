@@ -31,7 +31,7 @@
     }
 
     // soit f la friction.
-    f = 0.1;
+    f = 0.01;
     //accélération
     accX = rotationY * f;
     accY = rotationX * f;
