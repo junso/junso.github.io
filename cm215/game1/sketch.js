@@ -102,6 +102,9 @@
     this.yPos = random(0, windowHeight);
     this.size = random(25, 50);
     this.color = color(random(0, 255), random(0, 255), random(0, 255));
+    if(this.type == "block"){
+      this.color = color(0);
+    }
     this.colision = false;
 
     this.drawObstacles = function() {
