@@ -69,16 +69,16 @@
     for (i = 0; i < 3; i++) {
       if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i] / 2) {
 
-        if (obstacles[i].type == "block") {
+        if (obstacles[i].type === "block") {
           vX = -vX * bounce;
           vY = -vY * bounce;
 
-        } else if (obstacles[i].type == "bonus") {
+        } else if (obstacles[i].type === "bonus") {
           if (obstacles[i].colision === false) {
             obstacles.colision = true;
             score += 10;
           }
-        } else if (obstacles[i].type == "malus") {
+        } else if (obstacles[i].type === "malus") {
           if (obstacles[i].colision === false) {
             obstacles[i].colision = true;
             score -= 5;
