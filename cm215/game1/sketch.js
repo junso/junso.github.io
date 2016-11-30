@@ -67,7 +67,7 @@
     //condition de rebond sur les obstacles.
 
     for (i = 0; i < 3; i++) {
-      if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i] / 2) {
+      if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i].size / 2) {
 
         if (obstacles[i].type === "block") {
           vX = -vX * bounce;
