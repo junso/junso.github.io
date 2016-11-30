@@ -44,8 +44,8 @@
 
     /******************************************DEBUT DES CONDITIONS***************************************/
 
-    //text("score:" + score, 15, 35);
-    text("width:" + windowWidth +  "height: " + windowHeight, 15,35);
+    text("score:" + score, 15, 35);
+    //text("width:" + windowWidth +  "height: " + windowHeight, 15,35);
     //condition de rebond sur les bords de gauche et de droite.
 
     if ((xPos + ballSize / 2) >= windowWidth) {
