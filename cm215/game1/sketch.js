@@ -75,7 +75,7 @@
 
         } else if (obstacles[i].type === "bonus") {
           if (obstacles[i].colision === false) {
-            obstacles.colision = true;
+            obstacles[i].colision = true;
             score += 10;
           }
         } else if (obstacles[i].type === "malus") {
