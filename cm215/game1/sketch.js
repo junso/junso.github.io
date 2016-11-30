@@ -24,6 +24,7 @@
 
     background(255);
     fill(0);
+    textSize(40)
     drawBall();
     for (i = 0; i < 3; i++) {
       obstacles[i].drawObstacles();
@@ -43,7 +44,8 @@
 
     /******************************************DEBUT DES CONDITIONS***************************************/
 
-    text("score:" + score, 10, 17);
+    //text("score:" + score, 15, 35);
+    text("width:" + windowWidth +  "height: " + windowHeight);
     //condition de rebond sur les bords de gauche et de droite.
 
     if ((xPos + ballSize / 2) >= windowWidth) {
@@ -65,7 +67,6 @@
     //condition de rebond sur les obstacles.
 
     for (i = 0; i < 3; i++) {
-
       if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i] / 2) {
 
         if (obstacles[i].type == "block") {
