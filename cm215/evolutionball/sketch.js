@@ -1,6 +1,6 @@
   var i, newGame, obstacles = [];
   var type = 0;
-  var iMax, obsX, obsY;
+  var iMax, obsX, obsY,img_malus,img_bonus, img_block,img_balle;
   var ballSize, vY, vX, accX, accY, xPos, yPos, bounce, f, colision, bonus, malus, block;
   var score, typeObstacle, level, img, timer, cycle;
   var scoreLevel = [0, 50, 100, 200],
@@ -8,6 +8,10 @@
 
   function preload() {
     img = loadImage("skezako.jpg");
+    img_balle = loadImage("balle.png");
+    img_block = loadImage("block.png");
+    img_bonus = loadImage("bonus.png");
+    //img_malus = loadImage("malus.png");
   }
 
   function setup() {
@@ -61,6 +65,8 @@
   function drawBall() {
 
     if (timer >= 0) {
+    //this.img;
+      this.img = img_malus;
       fill(0, 255, 255);
       ellipse(xPos, yPos, ballSize, ballSize);
 
@@ -170,18 +176,23 @@
     this.xPos = posx;
     this.yPos = posy;
     this.size = taille;
+    this.img;
     this.color = color(random(0, 255), random(0, 255), random(0, 255));
     if (this.type == "block") {
       this.color = color(0, 255, 255);
+      this.img = img_block;
     } else if (this.type == "bonus") {
       this.color = color(0, 255, 20);
       this.colision = false;
+      this.img = img_bonus;
     } else {
       this.color = color(0);
+      this.img = img_malus;
     }
     this.drawObstacles = function() {
-      fill(this.color);
-      ellipse(this.xPos, this.yPos, this.size, this.size);
+      
+       image(this.img, this.xPos, this.yPos, this.size, this.size);
+      
     }
   }
 
