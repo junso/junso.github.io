@@ -65,9 +65,8 @@
   function drawBall() {
 
     if (timer >= 0) {
-    //this.img;
-      this.img = img_malus;
-      fill(0, 255, 255);
+     fill(0, 255, 255);
+    
       ellipse(xPos, yPos, ballSize, ballSize);
 
 
