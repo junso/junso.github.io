@@ -43,7 +43,7 @@
     for (i = 0; i < iMax; i++) {
       obstacles[i].drawObstacles();
     }
-   fill(255);
+    fill(255);
     textSize(25);
     text("score:" + score, 15, 35);
     text("Time:" + floor(timer / 60), windowWidth / 2 - 120, 35);
@@ -64,10 +64,9 @@
   }
 
   function drawBall() {
-fill(200, 10, 0);
-    if (timer >= 0) {
-     
 
+    if (timer >= 0) {
+      fill(200, 10, 0);
       ellipse(xPos, yPos, ballSize, ballSize);
       f = 0.01; // soit f la friction.
       accX = rotationY * f; //accélérationX
@@ -182,7 +181,7 @@ fill(200, 10, 0);
       //this.img = img_malus;
     }
     this.drawObstacles = function() {
-      //image(this.img, this.xPos, this.yPos, this.size, this.size);
+      fill(this.color);//image(this.img, this.xPos, this.yPos, this.size, this.size);
       ellipse(this.xPos, this.yPos, this.size, this.size);
     }
   }
