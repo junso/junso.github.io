@@ -7,9 +7,8 @@
     timerLevel = [20 * 60, 40 * 60, 60 * 60];
 
   function preload() {
-    img = loadImage("s.kezako.jpg");
+    img = loadImage("skezako.jpg");
   }
-
   function setup() {
     createCanvas(windowWidth, windowHeight);
     ellipseMode(CENTER);
@@ -181,7 +180,7 @@
   function gameover() {
     fill(255);
     rect(windowWidth / 2, windowHeight / 2, 40, 40);
-    fill(10);
+    fill(0);
     rect(windowWidth / 2, windowHeight / 2, 45, 45);
     text("VOUS AVEZ PERDU", windowWidth / 2, windowHeight / 2);
   }
