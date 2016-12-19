@@ -17,7 +17,8 @@
   function setup() {
     createCanvas(windowWidth, windowHeight);
     ellipseMode(CENTER);
-    rectMode
+    rectMode(CENTER);
+    textAlign(CENTER)
     level = 1;
     timer = timerLevel[level];
     newGame = true;
@@ -25,7 +26,7 @@
     vY = 0;
     score = 0;
     ballSize = 30;
-    bounce = 0.8;
+    bounce = 0.6;
     xPos = windowWidth / 2;
     yPos = windowHeight / 2;
   }
@@ -39,7 +40,6 @@
 
     testColl();
     drawBall();
-
     for (i = 0; i < iMax; i++) {
       obstacles[i].drawObstacles();
     }
