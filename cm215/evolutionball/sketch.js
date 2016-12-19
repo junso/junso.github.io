@@ -4,7 +4,7 @@
   var ballSize, vY, vX, accX, accY, xPos, yPos, bounce, f, colision, bonus, malus, block;
   var score, typeObstacle, level, img, timer, cycle;
   var scoreLevel = [0, 50, 100, 200],
-    timerLevel = [0, 20 * 60, 40 * 60, 60 * 60];
+    timerLevel = [0, 50 * 60, 10 * 60, 200 * 60];
 
   function preload() {
     img = loadImage("skezako.jpg");
@@ -179,23 +179,23 @@
     this.color = color(random(0, 255), random(0, 255), random(0, 255));
     if (this.type == "block") {
       this.color = color(0, 255, 255);
-      this.img = img_block;
+      //this.img = img_block;
     } else if (this.type == "bonus") {
       this.color = color(0, 255, 20);
       this.colision = false;
-      this.img = img_bonus;
+      //this.img = img_bonus;
     } else {
       this.color = color(0);
-      this.img = img_malus;
+      //this.img = img_malus;
     }
     this.drawObstacles = function() {
       
-       image(this.img, this.xPos, this.yPos, this.size, this.size);
-      
+       //image(this.img, this.xPos, this.yPos, this.size, this.size);
+       ellipse(this.xPos, this.yPos, this.size, this.size);
     }
   }
 
-  function gameover() {
+  function gameOver() {
     fill(255);
     rect(windowWidth / 2, windowHeight / 2, 40, 40);
     fill(0);
