@@ -64,9 +64,9 @@
   }
 
   function drawBall() {
-
+fill(200, 10, 0);
     if (timer >= 0) {
-      fill(0, 255, 255);
+     
 
       ellipse(xPos, yPos, ballSize, ballSize);
       f = 0.01; // soit f la friction.
