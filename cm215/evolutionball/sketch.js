@@ -55,40 +55,43 @@
     } else {
       timer--;
     }
+  }
 
-    function drawBall() {
-      if (timer >= 0) {
-        fill(0, 255, 255);
-        ellipse(xPos, yPos, ballSize, ballSize);
-        vX += accX; //vitesseX
-        vY += accY; //vitesseY
-        f = 0.01; // soit f la friction.
-        accX = rotationY * f; //accélérationX
-        accY = rotationX * f; //accélérationY
-        xPos += vX; //position
-        yPos += vY; //position
+  function drawBall() {
+    if (timer >= 0) {
+      fill(0, 255, 255);
+      ellipse(xPos, yPos, ballSize, ballSize);
+      vX += accX; //vitesseX
+      vY += accY; //vitesseY
+      f = 0.01; // soit f la friction.
+      accX = rotationY * f; //accélérationX
+      accY = rotationX * f; //accélérationY
+      xPos += vX; //position
+      yPos += vY; //position
 
-        //condition de rebond sur les bords de gauche et de droite.
-        if (xPos + ballSize / 2 >= windowWidth) {
-          vX = -vX * bounce;
-          xPos = windowWidth - ballSize / 2;
-        }
-        if (xPos - ballSize / 2 <= 0) {
-          vX = -vX * bounce;
-          xPos = ballSize / 2;
-        }
-        //condition de rebond sur les bords du haut et du bas.
-        if (yPos + ballSize / 2 >= windowHeight) {
-          vY = -vY * bounce;
-          yPos = windowHeight - ballSize / 2;
-        }
-        if (yPos - ballSize / 2 <= 0) {
-          vY = -vY * bounce;
-          yPos = ballSize / 2;
-        }
+      //condition de rebond sur les bords de gauche et de droite.
+      if (xPos + ballSize / 2 >= windowWidth) {
+        vX = -vX * bounce;
+        xPos = windowWidth - ballSize / 2;
+      }
+      if (xPos - ballSize / 2 <= 0) {
+        vX = -vX * bounce;
+        xPos = ballSize / 2;
+      }
+      //condition de rebond sur les bords du haut et du bas.
+      if (yPos + ballSize / 2 >= windowHeight) {
+        vY = -vY * bounce;
+        yPos = windowHeight - ballSize / 2;
+      }
+      if (yPos - ballSize / 2 <= 0) {
+        vY = -vY * bounce;
+        yPos = ballSize / 2;
       }
     }
   }
+
+
+
   //condition de rebond sur les obstacles.
 
   function obst() {
