@@ -1,10 +1,16 @@
   var obstacles = []; /* Aray */
   var ballSize, vY, vX, accX, accY, xPos, yPos, bounce, f, colision, bonus, malus, block, score, typeObstacle;
-
+  
+function preload() {
+  img=loadImage("s.kezako.jpg");
+    
+  }
+  
   function setup() {
     createCanvas(windowWidth, windowHeight);
     ellipseMode(CENTER);
     var typeObstacle = 0;
+
 
     for (var i = 0; i < 3; i++) {
       obstacles[0] = new Obstacle("bonus");
@@ -127,6 +133,7 @@
       ellipse(this.xPos, this.yPos, this.size, this.size);
     }
   }
+  
 
   //level 1
   function Level1() {
