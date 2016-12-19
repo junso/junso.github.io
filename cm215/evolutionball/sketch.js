@@ -167,7 +167,7 @@
     this.xPos = posx;
     this.yPos = posy;
     this.size = taille;
-    this.img;
+    //this.img;
     this.color = color(random(0, 255), random(0, 255), random(0, 255));
     if (this.type == "block") {
       this.color = color(0);
@@ -175,7 +175,8 @@
       this.colision = false;
   
     this.drawObstacles = function() {
-      fill(this.color);//image(this.img, this.xPos, this.yPos, this.size, this.size);
+      fill(this.color);
+      //image(this.img, this.xPos, this.yPos, this.size, this.size);
       ellipse(this.xPos, this.yPos, this.size, this.size);
     }
   }
