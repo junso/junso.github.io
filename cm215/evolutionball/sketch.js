@@ -170,16 +170,10 @@
     this.img;
     this.color = color(random(0, 255), random(0, 255), random(0, 255));
     if (this.type == "block") {
-      this.color = color(0, 255, 255);
-      //this.img = img_block;
-    } else if (this.type == "bonus") {
-      this.color = color(0, 255, 20);
-      this.colision = false;
-      //this.img = img_bonus;
-    } else {
-      this.color = color(0, 255, 0);
-      //this.img = img_malus;
+      this.color = color(0);
     }
+      this.colision = false;
+  
     this.drawObstacles = function() {
       fill(this.color);//image(this.img, this.xPos, this.yPos, this.size, this.size);
       ellipse(this.xPos, this.yPos, this.size, this.size);
