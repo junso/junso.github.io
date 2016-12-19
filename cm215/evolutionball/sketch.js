@@ -177,7 +177,7 @@
       this.colision = false;
       //this.img = img_bonus;
     } else {
-      this.color = color(0, 0, 0);
+      this.color = color(0, 255, 0);
       //this.img = img_malus;
     }
     this.drawObstacles = function() {
