@@ -9,6 +9,7 @@
   function preload() {
     img = loadImage("skezako.jpg");
   }
+
   function setup() {
     createCanvas(windowWidth, windowHeight);
     ellipseMode(CENTER);
@@ -39,8 +40,8 @@
     fill(255);
     textSize(25);
     text("score:" + score, 15, 35);
-    text("Time:" + floor(timer / 60), windowWidth / 2 - 25, 25);
-    text("Niveau suivant : 100 points", 25, 40);
+    text("Time:" + floor(timer / 60), windowWidth / 2 - 120, 35);
+    text("Niveau suivant : 100 points", 15, 70);
 
     if (timer <= 0) {
       if (score >= scoreLevel[level]) {
@@ -93,8 +94,6 @@
   function obst() {
 
 
-    var cycle = true;
-
     if (level == 1) {
       iMax = 3;
     } else if (level == 2) {
@@ -115,12 +114,12 @@
         type = 0;
       }
 
-      obstacleTaille = random(30, 60);
-
+      var obstacleTaille = random(30, 60);
+      var cycle = true;
       while (cycle) {
         obsX = random(10, windowWidth);
         obsY = random(10, windowHeight);
-
+        console.log("obsx: " + obsX + " obsy: " + obsY);
         cycle = false;
 
         for (var k = 0; k < i; k++) {
@@ -131,6 +130,7 @@
         }
       }
       obstacles[i] = new Obstacle(typeobs, obstacleTaille, obsX, obsY);
+      //console.log(obstacles[i]);
     }
   }
 
@@ -164,7 +164,7 @@
     this.size = taille;
     this.color = color(random(0, 255), random(0, 255), random(0, 255));
     if (this.type == "block") {
-      this.color = color(0);
+      this.color = color(0, 255, 255);
     } else if (this.type == "bonus") {
       this.color = color(0, 255, 20);
       this.colision = false;
