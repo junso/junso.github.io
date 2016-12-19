@@ -4,7 +4,7 @@
   var ballSize, vY, vX, accX, accY, xPos, yPos, bounce, f, colision, bonus, malus, block;
   var score, typeObstacle, level, img, timer, cycle;
   var scoreLevel = [0, 50, 100, 200],
-    timerLevel = [20 * 60, 40 * 60, 60 * 60];
+    timerLevel = [0, 20 * 60, 40 * 60, 60 * 60];
 
   function preload() {
     img = loadImage("skezako.jpg");
@@ -14,7 +14,7 @@
     createCanvas(windowWidth, windowHeight);
     ellipseMode(CENTER);
     level = 1;
-    timer = timerLevel;
+    timer = timerLevel[level];
     newGame = true;
     vX = 0;
     vY = 0;
@@ -31,9 +31,10 @@
       newGame = false;
     }
     background(img, 100);
-    newGame = false;
+
     testColl();
     drawBall();
+
     for (i = 0; i < iMax; i++) {
       obstacles[i].drawObstacles();
     }
@@ -58,14 +59,19 @@
   }
 
   function drawBall() {
+
     if (timer >= 0) {
       fill(0, 255, 255);
       ellipse(xPos, yPos, ballSize, ballSize);
-      vX += accX; //vitesseX
-      vY += accY; //vitesseY
+
+
+
+
       f = 0.01; // soit f la friction.
       accX = rotationY * f; //accélérationX
       accY = rotationX * f; //accélérationY
+      vX += accX; //vitesseX
+      vY += accY; //vitesseY
       xPos += vX; //position
       yPos += vY; //position
 
@@ -122,7 +128,7 @@
       while (cycle) {
         obsX = random(10, windowWidth);
         obsY = random(10, windowHeight);
-        console.log("obsx: " + obsX + " obsy: " + obsY);
+
         cycle = false;
 
         for (var k = 0; k < i; k++) {
@@ -133,7 +139,6 @@
         }
       }
       obstacles[i] = new Obstacle(typeobs, obstacleTaille, obsX, obsY);
-      //console.log(obstacles[i]);
     }
   }
 
