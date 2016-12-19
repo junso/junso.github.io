@@ -88,93 +88,100 @@
         }
       }
     }
-}
-    //condition de rebond sur les obstacles.
+  }
+  //condition de rebond sur les obstacles.
 
-    function obst() {
-      obstacles = random(30, 60);
-      var cycle = true;
-      if (level == 1) {
-        iMax = 3;
-      } else if (level == 2) {
-        iMax = 8;
-      } else if (level == 3) {
-        iMax = 16;
+  function obst() {
+
+
+    var cycle = true;
+
+    if (level == 1) {
+      iMax = 3;
+    } else if (level == 2) {
+      iMax = 8;
+    } else if (level == 3) {
+      iMax = 16;
+    }
+
+    for (i = 0; i < iMax; i++) {
+      if (type === 1) {
+        typeobs = "block";
+        type++;
+      } else if (type === 2) {
+        typeobs = "malus";
+        type++;
+      } else {
+        typeobs = "bonus";
+        type = 0;
       }
-      for (i = 0; i < iMax; i++) {
-        if (type === 1) {
-          typeobs = "block";
-          type++;
-        } else if (type === 2) {
-          typeobs = "malus";
-          type++;
-        } else {
-          typeobs = "bonus";
-          type = 0;
-        }
-        obstacles[i] = new Obs(typeobs, obstacles, obsX, obsY);
-      }
+
+      obstacleTaille = random(30, 60);
+
       while (cycle) {
         obsX = random(10, windowWidth);
         obsY = random(10, windowHeight);
+
         cycle = false;
 
         for (var k = 0; k < i; k++) {
-          if (dist(obsX, obsY, ob[k].obsX, ob[k].obsY <= obstacles / 2 + ob[k].size)) {
+          if (dist(obsX, obsY, obstacles[k].xPos, obstacles[k].yPos) <= obstacles / 2 + obstacles[k].size) {
             cycle = true;
             break;
           }
         }
       }
+      obstacles[i] = new Obstacle(typeobs, obstacleTaille, obsX, obsY);
     }
+  }
 
-    function testCol() {
-      for (i = 0; i < iMax; i++) {
-        if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i].size / 2) {
-          if (obstacles[i].type === "block") {
-            vX = -vX * bounce;
-            vY = -vY * bounce;
-          } else if (obstacles[i].type === "bonus") {
-            if (obstacles[i].colision === false) {
-              obstacles[i].colision = true;
-              score += 10;
-            }
-          } else if (obstacles[i].type === "malus") {
-            if (obstacles[i].colision === false) {
-              obstacles[i].colision = true;
-              score -= 5;
-            }
+  function testColl() {
+    for (i = 0; i < iMax; i++) {
+      if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i].size / 2) {
+        if (obstacles[i].type === "block") {
+          vX = -vX * bounce;
+          vY = -vY * bounce;
+        } else if (obstacles[i].type === "bonus") {
+          if (obstacles[i].colision === false) {
+            obstacles[i].colision = true;
+            score += 10;
           }
-        } else {
-          obstacles[i].colision = false;
+        } else if (obstacles[i].type === "malus") {
+          if (obstacles[i].colision === false) {
+            obstacles[i].colision = true;
+            score -= 5;
+          }
         }
-      }
-    }
-    /******************************************** fin fonction draw ******************************************/
-    function Obstacle(obstacles) {
-      this.type = obstacles;
-      this.xPos = random(0, windowWidth);
-      this.yPos = random(0, windowHeight);
-      this.size = random(25, 50);
-      this.color = color(random(0, 255), random(0, 255), random(0, 255));
-      if (this.type == "block") {
-        this.color = color(0);
-      } else if (this.type == "bonus") {
-        this.color = color(0, 255, 20);
-        this.colision = false;
       } else {
-        this.color = color(0);
-      }
-      this.drawObstacles = function() {
-        fill(this.color);
-        ellipse(this.xPos, this.yPos, this.size, this.size);
+        obstacles[i].colision = false;
       }
     }
+  }
+  /******************************************** fin fonction draw ******************************************/
+  function Obstacle(obstacles, taille, posx, posy) {
+    this.type = obstacles;
+    this.xPos = posx;
+    this.yPos = posy;
+    this.size = taille;
+    this.color = color(random(0, 255), random(0, 255), random(0, 255));
+    if (this.type == "block") {
+      this.color = color(0);
+    } else if (this.type == "bonus") {
+      this.color = color(0, 255, 20);
+      this.colision = false;
+    } else {
+      this.color = color(0);
+    }
+    this.drawObstacles = function() {
+      fill(this.color);
+      ellipse(this.xPos, this.yPos, this.size, this.size);
+    }
+  }
 
-    function gameover() {
-      fill(255);
-      rect(windowWidth / 2, windowHeight / 2, 40, 40);
-      fill(10);
-      rect(windowWidth / 2, windowHeight / 2, 45, 45);
-      text("VOUS AVEZ PERDU", windowWidth / 2, windowHeight / 2);
-    }
+  function gameover() {
+    fill(255);
+    rect(windowWidth / 2, windowHeight / 2, 40, 40);
+    fill(10);
+    rect(windowWidth / 2, windowHeight / 2, 45, 45);
+    text("VOUS AVEZ PERDU", windowWidth / 2, windowHeight / 2);
+  }
