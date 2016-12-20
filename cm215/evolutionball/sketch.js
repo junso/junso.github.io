@@ -8,10 +8,7 @@
 
   function preload() {
     img = loadImage("skezako.jpg");
-    //img_balle = loadImage("balle.png");
-    //img_block = loadImage("block.png");
-    //img_bonus = loadImage("bonus.png");
-    //img_malus = loadImage("malus.png");
+
   }
 
   function setup() {
@@ -37,14 +34,13 @@
       newGame = false;
     }
     background(img, 100);
-
+    fill(255);
+    textSize(25);
     testColl();
     drawBall();
     for (i = 0; i < iMax; i++) {
       obstacles[i].drawObstacles();
     }
-    fill(255);
-    textSize(25);
     text("score:" + score, 15, 35);
     text("Time:" + floor(timer / 60), windowWidth / 2 - 120, 35);
     //text("Niveau suivant : 10 points", 15, 70);
@@ -61,121 +57,121 @@
     } else {
       timer--;
     }
-  }
 
-  function drawBall() {
+    function drawBall() {
 
-    if (timer >= 0) {
-      fill(200, 10, 0);
-      ellipse(xPos, yPos, ballSize, ballSize);
-      f = 0.01; // soit f la friction.
-      accX = rotationY * f; //accélérationX
-      accY = rotationX * f; //accélérationY
-      vX += accX; //vitesseX
-      vY += accY; //vitesseY
-      xPos += vX; //position
-      yPos += vY; //position
-
-      //condition de rebond sur les bords de gauche et de droite.
-      if (xPos + ballSize / 2 >= windowWidth) {
-        vX = -vX * bounce;
-        xPos = windowWidth - ballSize / 2;
-      }
-      if (xPos - ballSize / 2 <= 0) {
-        vX = -vX * bounce;
-        xPos = ballSize / 2;
-      }
-      //condition de rebond sur les bords du haut et du bas.
-      if (yPos + ballSize / 2 >= windowHeight) {
-        vY = -vY * bounce;
-        yPos = windowHeight - ballSize / 2;
-      }
-      if (yPos - ballSize / 2 <= 0) {
-        vY = -vY * bounce;
-        yPos = ballSize / 2;
+      if (timer >= 0) {
+        fill(200, 10, 0);
+        ellipse(xPos, yPos, ballSize, ballSize);
+        f = 0.01; // soit f la friction.
+        accX = rotationY * f; //accélérationX
+        accY = rotationX * f; //accélérationY
+        vX += accX; //vitesseX
+        vY += accY; //vitesseY
+        xPos += vX; //position
+        yPos += vY; //position
+        //condition de rebond sur les bords de gauche et de droite.
+        if (xPos + ballSize / 2 >= windowWidth) {
+          vX = -vX * bounce;
+          xPos = windowWidth - ballSize / 2;
+        }
+        if (xPos - ballSize / 2 <= 0) {
+          vX = -vX * bounce;
+          xPos = ballSize / 2;
+        }
+        //condition de rebond sur les bords du haut et du bas.
+        if (yPos + ballSize / 2 >= windowHeight) {
+          vY = -vY * bounce;
+          yPos = windowHeight - ballSize / 2;
+        }
+        if (yPos - ballSize / 2 <= 0) {
+          vY = -vY * bounce;
+          yPos = ballSize / 2;
+        }
       }
     }
-  }
-  //condition de rebond sur les obstacles.
-
-  function obst() {
-    if (level == 1) {
-      iMax = 3;
-    } else if (level == 2) {
-      iMax = 8;
-    } else if (level == 3) {
-      iMax = 16;
-    }
-
-    for (i = 0; i < iMax; i++) {
-      if (type === 1) {
-        typeobs = "bonus";
-        type++;
-      } else if (type === 2) {
-        typeobs = "malus";
-        type++;
-      } else {
-        typeobs = "block";
-        type = 0;
-      }
-
-      var obstacleTaille = random(30, 60);
+    //condition de rebond sur les obstacles.
+    /*crétion des objets*/
+    function obst() {
       var cycle = true;
+      if (level == 1) {
+        iMax = 3
+      } else if (level == 2) {
+        iMax = 8
+      } else if (level == 3) {
+        iMax = 16
+      }
+      for (i = 0; i < iMax; i++) {
+        if (type === 0) {
+          typeobs = "malus";
+          type++;
+        } else if (type === 1) {
+          typeobs = "block";
+          type++;
+        } else {
+          typeobs = "bonus";
+          type = 0;
+        }
+        obstacles[i] = new Obstacle(typeobs, obstacleTaille, obsX, obsY);
+      }
+      var obstacleTaille = random(30, 60);
+      cycle = true;
       while (cycle) {
         obsX = random(10, windowWidth);
         obsY = random(10, windowHeight);
-
         cycle = false;
-
         for (var k = 0; k < i; k++) {
-          if (dist(obsX, obsY, obstacles[k].xPos, obstacles[k].yPos) <= obstacles / 2 + obstacles[k].size) {
+          if (dist(obsX, obsY, obstacles[k].xPos, obstacles[k].yPos <= obstacles / 2 + obstacles[k].size / 2)) {
             cycle = true;
             break;
           }
         }
       }
-      obstacles[i] = new Obstacle(typeobs, obstacleTaille, obsX, obsY);
     }
-  }
 
-  function testColl() {
+    function testColl() {
 
-    for (i = 0; i < iMax; i++) {
-      if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i].size / 2) {
-        if (obstacles[i].type === "block") {
-          vX = -vX * bounce;
-          vY = -vY * bounce;
-        } else if (obstacles[i].type === "bonus") {
-          if (obstacles[i].colision === false) {
-            obstacles[i].colision = true;
-            score += 10;
+      for (i = 0; i < iMax; i++) {
+        if (dist(xPos, yPos, obstacles[i].xPos, obstacles[i].yPos) <= ballSize / 2 + obstacles[i].size / 2) {
+          if (obstacles[i].type === "block") {
+            vX = -vX * bounce;
+            vY = -vY * bounce;
+          } else if (obstacles[i].type === "bonus") {
+            if (obstacles[i].colision === false) {
+              obstacles[i].colision = true;
+              score += 10;
+            }
+          } else if (obstacles[i].type === "malus") {
+            if (obstacles[i].colision === false) {
+              obstacles[i].colision = true;
+              score -= 5;
+            }
           }
-        } else if (obstacles[i].type === "malus") {
-          if (obstacles[i].colision === false) {
-            obstacles[i].colision = true;
-            score -= 5;
-          }
+        } else {
+          obstacles[i].colision = false;
         }
-      } else {
-        obstacles[i].colision = false;
       }
     }
+
   }
   /******************************************** fin fonction draw ******************************************/
-  function Obstacle(obstacles, taille, posx, posy) {
+  function Obstacle(obstacles) {
     this.type = obstacles;
-    this.xPos = posx;
-    this.yPos = posy;
-    this.size = taille;
+    this.xPos = random(0, windowHeight);
+    this.yPos = random(0, windowHeight);
+    this.size = random(50, 0);
     //this.img;
+    this.col = false;
     this.color = color(random(0, 255), random(0, 255), random(0, 255));
-    if (this.type == "block") {
+    if (this.type === "block") {
       this.color = color(0);
+    } else if (this.type === bonus) {
+      this.colour = color(0.255, 10);
+    } else {
+      this.colour = color(255, 0, 0);
     }
-      this.colision = false;
-  
     this.drawObstacles = function() {
-      fill(this.color);
+      fill(this.colour);
       //image(this.img, this.xPos, this.yPos, this.size, this.size);
       ellipse(this.xPos, this.yPos, this.size, this.size);
     }
