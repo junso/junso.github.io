@@ -23,13 +23,13 @@ function draw() {
   fill(random(0, 255), random(0, 255), random(0, 255));
 
   beginShape();
-  for (var i = 0; i < touch.length; i++) {
+  for (var i = 0; i < touches.length; i++) {
 
     vertex(touches[i].x, touch[i].y);
     
     textSize(60);
-    text("x: " + floor(), touch[i].x, touch[i].y);
-    text("y: " + floor(), touch[i].y, touch[i].x);
+    text("x: " + floor(), touches[i].x, touches[i].y);
+    text("y: " + floor(), touches[i].y, touches[i].x);
   }
 
   endShape(CLOSE);
