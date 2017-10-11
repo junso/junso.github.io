@@ -1,3 +1,4 @@
+var text;
 document.ontouchmove = function(event) {
   event.preventDefault();
 }
@@ -29,3 +30,6 @@ function draw() {
   endShape(CLOSE);
 
 }
+var textSize(45);
+text("px: " + floor());
+text("py: " + floor());
