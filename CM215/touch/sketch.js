@@ -27,9 +27,9 @@ function draw() {
 
     vertex(touches[i].x, touch[i].y);
     
-    textSize(60);
-    text("x: " + floor(), touches[i].x, touches[i].y);
-    text("y: " + floor(), touches[i].y, touches[i].x);
+    textSize(100);
+    text("x: " + floor(touches[i].x, touches[i].y), touches[i].x, touches[i].y);
+    text("y: " + floor(touches[i].x, touches[i].y), touches[i].y, touches[i].x);
   }
 
   endShape(CLOSE);
