@@ -15,9 +15,9 @@ function draw() {
   background(255);
   fill(random(0, 255), random(0, 255), random(0, 255));
 
-  textSize(45);
-  text("x: " + floor(),touches[i]);
-  text("y: " + floor(),touches[i]);
+  textSize(20);
+  text("x: " + floor(),100,100);
+  text("y: " + floor(),100,100);
 
   for (var i = 0; i < touches.length; i++) {
     ellipse(touches[i].x, touches[i].y, 80, 80);
