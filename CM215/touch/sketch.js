@@ -6,13 +6,13 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   ellipseMode(CENTER);
   stroke(0);
-  fill(0);
+  fill();
   strokeWeight(2);
 }
 
 function draw() {
   background(255);
-   fill(255,245);
+
  
   for (var i = 0; i < touches.length; i++) {
     ellipse(touches[i].x, touches[i].y, 80,80);
