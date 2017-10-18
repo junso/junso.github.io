@@ -1,4 +1,4 @@
-var   ballSize, vX, vY, xPos, yPos, aX, aY, bounce, multiplier;
+var   ballSize, vX, vY, xPos, yPos, aX, aY, bounce, multiplier,value ;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -12,7 +12,6 @@ function setup() {
   xPos = windowWidth / 2;
   yPos = windowHeight / 2;
 }
-
 
 function draw() {
   background(255);
@@ -61,7 +60,12 @@ if ((xPos + ballSize / 2) >= windowWidth) {
       yPos = ballSize / 2;
     }
 }
-
+function deviceShaken() {
+  value = value + 5;
+  if (value > 255) {
+    value = 0;
+  }
+}
 function drawBall() {
 
   fill(18, 02, 92);
