@@ -1,5 +1,5 @@
-var   ballSize, vX, vY, xPos, yPos, aX, aY, bounce, multiplier,value ;
-
+var   ballSize, vX, vY, xPos, yPos, aX, aY, bounce, multiplier;
+var value=0;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   ellipseMode(CENTER);
@@ -19,11 +19,8 @@ function draw() {
   fill(0);
   
   textSize(20)
-  if (xPos > 0){
   text("Rx: " + rotationX, xPos+70,yPos);
-    
-  }
-  text("Ry: " + rotationY, yPos+70, xPos+20);
+  text("Ry rotation: " + rotationY, yPos+70, xPos+20);
   
    // soit "multiplier" la friction.
    
