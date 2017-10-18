@@ -6,7 +6,7 @@ function setup() {
 
   vX = 0;
   vY = 0;
-  ballSize = 100;
+  ballSize = 115;
   bounce = 0.75;
   
   xPos = windowWidth / 2;
