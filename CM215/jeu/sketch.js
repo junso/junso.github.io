@@ -1,4 +1,4 @@
-var ball, vX, vY, xPos, yPos, aX, aY, bounce, f;
+var ball, vX, vY, xPos, yPos, aX, aY, bounce, multiplier;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -6,9 +6,8 @@ function setup() {
 
   vX = 0;
   vY = 0;
-  score = 0;
   ballSize = 100;
-  bounce = 0.5;
+  bounce = 0.75;
   xPos = windowWidth / 2;
   yPos = windowHeight / 2;
 }
@@ -24,14 +23,17 @@ function draw() {
   text("Ry: " + rotationY, 100, 150);
   text("Rz: " + rotationZ, 100, 200);
   
-   // soit f la friction.
-    f = 0.005;
+   // soit multiplier la friction.
+   
+    multiplier = 0.0010;
     
-    //accélération
-    aX = rotationY * f;
-    aY = rotationX * f;
+    //soit accélération
     
-    //vitesse
+    aX = rotationY * multiplier;
+    aY = rotationX * multiplier;
+    
+    //soit vY et vX la vitesse
+    
     vX += aX;
     vY += aY;
     
@@ -43,6 +45,7 @@ function draw() {
 
 if ((xPos + ballSize / 2) >= windowWidth) {
       vX = -vX * bounce;
+      
       xPos = windowWidth - ballSize / 2;
     } else if ((xPos - ballSize / 2) <= 0) {
       vX = -vX * bounce;
@@ -61,6 +64,6 @@ if ((xPos + ballSize / 2) >= windowWidth) {
 
 function drawBall() {
 
-  fill(250, 2550, 0);
+  fill(18, 02, 92);
   ellipse(xPos, yPos, ballSize, ballSize);
 }
