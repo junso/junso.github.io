@@ -1,4 +1,4 @@
-var ball, vX, vY, xPos, yPos, aX, aY, bounce, multiplier;
+var   ballSize, vX, vY, xPos, yPos, aX, aY, bounce, multiplier;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -22,7 +22,6 @@ function draw() {
   textSize(20)
   text("Rx: " + rotationX, 100, 100);
   text("Ry: " + rotationY, 100, 150);
-  text("Rz: " + rotationZ, 100, 200);
   
    // soit "multiplier" la friction.
    
