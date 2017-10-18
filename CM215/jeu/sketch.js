@@ -25,7 +25,7 @@ function draw() {
   
    // soit "multiplier" la friction.
    
-    multiplier = 0.060;
+    multiplier = 0.0060;
     
     //soit aX et aY l'accélération
     
