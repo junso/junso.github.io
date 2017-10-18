@@ -19,8 +19,11 @@ function draw() {
   fill(0);
   
   textSize(20)
-  text("Rx: " + rotationX, 100, 100);
-  text("Ry: " + rotationY, 100, 150);
+  if (xPos > 0){
+  text("Rx: " + rotationX, xPos+70,yPos);
+    
+  }
+  text("Ry: " + rotationY, yPos+70, xPos+20);
   
    // soit "multiplier" la friction.
    
