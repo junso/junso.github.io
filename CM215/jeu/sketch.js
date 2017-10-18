@@ -8,6 +8,7 @@ function setup() {
   vY = 0;
   ballSize = 100;
   bounce = 0.75;
+  
   xPos = windowWidth / 2;
   yPos = windowHeight / 2;
 }
@@ -23,11 +24,11 @@ function draw() {
   text("Ry: " + rotationY, 100, 150);
   text("Rz: " + rotationZ, 100, 200);
   
-   // soit multiplier la friction.
+   // soit "multiplier" la friction.
    
-    multiplier = 0.0010;
+    multiplier = 0.060;
     
-    //soit accélération
+    //soit aX et aY l'accélération
     
     aX = rotationY * multiplier;
     aY = rotationX * multiplier;
@@ -37,7 +38,7 @@ function draw() {
     vX += aX;
     vY += aY;
     
-    //position
+    // soit xPos et yPos la position initiale de la balle
     xPos += vX;
     yPos += vY;
     
