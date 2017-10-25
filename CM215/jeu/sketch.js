@@ -19,8 +19,8 @@ function draw() {
   fill(0);
   
   textSize(20)
-  text("Rx: " + rotationX, xPos+70,yPos);
-  text("Ry rotation: " + rotationY, yPos+70, xPos+20);
+  text("Rx: " + rotationX, xPos +70,yPos);
+  text("Ry rotation: " + rotationY, xPos,yPos+70);
   
    // soit "multiplier" la friction.
    
@@ -41,6 +41,8 @@ function draw() {
     yPos += vY;
     
 /*************************** CONDITIONS DE REBONDISSEMENT *********************/
+
+//condition de rebond sur les bords de gauche et droite. 
 
 if ((xPos + ballSize / 2) >= windowWidth) {
       vX = -vX * bounce;
